@@ -25,7 +25,7 @@
 | Column             | Type        | Options                        |
 | ------------------ | ----------- | ------------------------------ |
 | name               | string      | null: false                    |
-| explanation        | string      | null: false                    |
+| explanation        | text        | null: false                    |
 | category_id        | string      | null: false                    |
 | condition_id       | string      | null: false                    |
 | shipping_charge_id | string      | null: false                    |
