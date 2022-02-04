@@ -30,6 +30,7 @@
 | condition          | string      | null: false                    |
 | shipping_charge    | string      | null: false                    |
 | shipping_area      | string      | null: false                    |
+| shipping_day       | string      | null: false                    |
 | price              | string      | null: false                    |
 | user               | references  | null: false, foreign_key: true |
 
