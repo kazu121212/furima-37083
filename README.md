@@ -26,11 +26,11 @@
 | ------------------ | ----------- | ------------------------------ |
 | name               | string      | null: false                    |
 | explanation        | text        | null: false                    |
-| category_id        | string      | null: false                    |
-| condition_id       | string      | null: false                    |
-| shipping_charge_id | string      | null: false                    |
-| shipping_area_id   | string      | null: false                    |
-| shipping_day_id    | string      | null: false                    |
+| category_id        | integer     | null: false                    |
+| condition_id       | integer     | null: false                    |
+| shipping_charge_id | integer     | null: false                    |
+| shipping_area_id   | integer     | null: false                    |
+| shipping_day_id    | integer     | null: false                    |
 | price              | integer     | null: false                    |
 | user               | references  | null: false, foreign_key: true |
 
