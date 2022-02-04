@@ -31,7 +31,7 @@
 | shipping_charge_id | string      | null: false                    |
 | shipping_area_id   | string      | null: false                    |
 | shipping_day_id    | string      | null: false                    |
-| price              | string      | null: false                    |
+| price              | integer     | null: false                    |
 | user               | references  | null: false, foreign_key: true |
 
 ### Association
