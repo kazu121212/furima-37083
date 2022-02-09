@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
       end
       it 'last_nameが空では登録できない' do
         @user.last_name = ''
-        @user.valid
+        @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
       it 'first_nameが空では登録できない' do
@@ -80,9 +80,20 @@ RSpec.describe User, type: :model do
         
       end
       it 'passwordが半角英数混合出ないと登録できない' do
-        @user.password = '00000'
+
+        @user.password = '000000'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+
+        @user.password = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+
+        @user.password = '０００aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+
+
 
 
       end
