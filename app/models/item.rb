@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   validates :shipping_charge_id, numericality: { other_than: 1 , message: "can't be blank" }
   validates :shipping_day_id, numericality: { other_than: 1 , message: "can't be blank" }
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'must be half-width number' }
-  validates :price,  presence: true ,numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'must be between 300 and 9_999_999'  }
+  validates :price,  presence: true ,numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'must be between 300 and 9_999_999'  }
   validates :image, presence: true 
   
 end
