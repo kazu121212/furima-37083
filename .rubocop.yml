@@ -50,7 +50,7 @@ Metrics/BlockNesting:
 
 # クラスの行数をチェック（無効）
 Metrics/ClassLength:
- Enabled: false
+ Enabled: true
 
 # 空メソッドの場合に、1行のスタイルにしない　NG例：def style1; end
 Style/EmptyMethod:
@@ -58,23 +58,23 @@ Style/EmptyMethod:
 
 # クラス内にクラスが定義されていないかチェック（無効）
 Style/ClassAndModuleChildren:
- Enabled: false
+ Enabled: true
 
 # 日本語でのコメントを許可
 Style/AsciiComments:
- Enabled: false
+ Enabled: true
 
 # クラスやモジュール定義前に、それらの説明書きがあるかをチェック（無効）
 Style/Documentation:
- Enabled: false
+ Enabled: true
 
 # ％i（）構文を使用していないシンボルで構成される配列リテラルをチェック（無効）
 Style/SymbolArray:
- Enabled: false
+ Enabled: true
 
 # 文字列に値が代入されて変わっていないかチェック（無効）
 Style/FrozenStringLiteralComment:
- Enabled: false
+ Enabled: true
 
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
