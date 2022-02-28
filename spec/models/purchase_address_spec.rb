@@ -74,7 +74,7 @@ RSpec.describe PurchaseAddress, type: :model do
 
       end
 
-      it 'telephoneが半角文字のみ保存可能' do
+      it 'telephoneが10桁又11桁でないと保存できない' do
         
         @purchase_address.telephone = '080111111'
         @purchase_address.valid?
