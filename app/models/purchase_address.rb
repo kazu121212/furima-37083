@@ -1,6 +1,6 @@
 class PurchaseAddress
   include ActiveModel::Model
-  attr_accessor :post_number, :shipping_area_id, :city, :house_number, :building, :telephone, :purchase_id, :item_id, :user_id
+  attr_accessor :post_number, :shipping_area_id, :city, :house_number, :building, :telephone, :purchase_id, :item_id, :user_id, :token
 
 
   with_options presence: true do
@@ -8,12 +8,16 @@ class PurchaseAddress
     validates :user_id
     validates :city
     validates :house_number
-    validates :building
+    validates :token
     
     validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :post_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'must be half-width number'}
+
+   
+   
     validates :shipping_area_id, numericality: { other_than: 1 , message: "can't be blank" }
     validates :telephone, numericality: { with: /\A[0-9]+\z/, message: 'must be half-width number' }
-    validates :telephone,  format: {with: /\A[0-9]{10,11}+\z/i,  message: "is too short "}
+    validates :telephone,  format: {with: /\A[0-9]{10,11}+\z/i,  message: "is too short"}
   end
 
   def save
