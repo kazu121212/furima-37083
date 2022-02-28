@@ -82,6 +82,23 @@ RSpec.describe PurchaseAddress, type: :model do
         
 
       end
+      it 'userが紐づいていないと保存できない' do
+        @purchase_address.user_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("User can't be blank" )
+      end
+
+      it 'itemが紐づいていないと保存できない' do
+        @purchase_address.item_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Item can't be blank" )
+      end
+      
+      it 'tokenが空では登録できない' do
+        @purchase_address.token = ''
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank" )
+      end
 
     end
   end
