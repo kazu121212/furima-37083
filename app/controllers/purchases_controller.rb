@@ -1,10 +1,12 @@
 class PurchasesController < ApplicationController
 
   before_action :authenticate_user!
+ 
   before_action :move_to_index
+  
 
   def index
-    @item = Item.find(params[:item_id])
+
     @purchase_address = PurchaseAddress.new
 
     if @item.purchase.present? 
@@ -15,9 +17,6 @@ class PurchasesController < ApplicationController
 
 
   def create
-    
-   
-  #  binding.pry
   
     @purchase_address = PurchaseAddress.new(purchase_params)
    
@@ -28,7 +27,6 @@ class PurchasesController < ApplicationController
       @purchase_address.save
       redirect_to root_path
     else
-      @purchase = Item.find(params[:item_id])
       render :index
     end
   end
@@ -40,7 +38,6 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_index
-    # binding.pry
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
       redirect_to root_path
@@ -55,5 +52,6 @@ class PurchasesController < ApplicationController
           currency: 'jpy'                 # 通貨の種類（日本円）
         )
   end
+
   
 end
