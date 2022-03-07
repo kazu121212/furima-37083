@@ -11,15 +11,16 @@ class PurchaseAddress
     validates :token
     
     validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :post_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'must be half-width number'}
+   
 
    
    
     validates :shipping_area_id, numericality: { other_than: 1 , message: "can't be blank" }
     validates :telephone, numericality: { with: /\A[0-9]+\z/, message: 'must be half-width number' }
-    validates :telephone,  format: {with: /\A[0-9]{10,11}+\z/i,  message: "is too short"}
+    
   end
-
+    validates :post_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'must be half-width number'}
+    validates :telephone,  format: {with: /\A[0-9]{10,11}+\z/i,  message: "is too short"}
   def save
     purchase = Purchase.create(item_id: item_id, user_id: user_id)
     # 住所を保存する
